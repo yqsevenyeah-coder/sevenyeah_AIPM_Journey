@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 
+const asset = (path) => `${import.meta.env.BASE_URL}assets/${path}`;
+
 const heroImages = [
-  "/assets/hero-1.jpg",
-  "/assets/hero-2.jpg",
-  "/assets/hero-3.jpg",
-  "/assets/hero-4.jpg",
-  "/assets/hero-5.jpg",
+  asset("hero-1.jpg"),
+  asset("hero-2.jpg"),
+  asset("hero-3.jpg"),
+  asset("hero-4.jpg"),
+  asset("hero-5.jpg"),
 ];
 
 function parseExperience(experience) {
@@ -28,7 +30,7 @@ const timelineData = [
     experience: "基于大语言模型的语文作文评阅系统：构建作文评分与反馈系统，建立多维评测体系并验证效果",
     abilities: ["Evaluation", "EdTech", "Research"],
     mediaLayout: "single",
-    mediaSrc: "/assets/8-1.png",
+    mediaSrc: asset("8-1.png"),
   },
   {
     time: "2023.06–2023.08",
@@ -38,7 +40,7 @@ const timelineData = [
       "Langchain私域问答机器人：搭建“问答库→向量检索→匹配回复”完整链路，实现客服自动化闭环",
     abilities: ["LLM", "RAG", "System Design"],
     mediaLayout: "single",
-    mediaSrc: "/assets/9-1.png",
+    mediaSrc: asset("9-1.png"),
   },
   {
     time: "2023.07–2023.08",
@@ -48,7 +50,7 @@ const timelineData = [
       "AI-agent小镇游戏：设计12个AI角色及记忆机制，构建多Agent互动系统与Prompt体系",
     abilities: ["Agent", "Persona", "Memory"],
     mediaLayout: "single",
-    mediaSrc: "/assets/5-1.png",
+    mediaSrc: asset("5-1.png"),
   },
   {
     time: "2024.04–2024.09",
@@ -60,7 +62,7 @@ const timelineData = [
     projectLink:
       "https://www.bilibili.com/video/BV13M4m1U7wW/?spm_id_from=333.337.search-card.all.click",
     mediaLayout: "single",
-    mediaSrc: "/assets/6-1.png",
+    mediaSrc: asset("6-1.png"),
   },
   {
     time: "2025.03–2025.09",
@@ -68,6 +70,13 @@ const timelineData = [
     type: "Industry",
     experience: "设计并推动AI音乐分析应用落地；参与古籍数字化AI平台设计与实施",
     abilities: ["Product", "B2B", "Deployment"],
+    mediaLayout: "dual",
+    mediaSize: "feature-left",
+    mediaFit: "contain",
+    mediaItems: [
+      { src: asset("10-1.png"), alt: "AI音乐分析应用项目展示" },
+      { src: asset("9-2.png"), alt: "古籍数字化AI平台项目展示" },
+    ],
   },
   {
     time: "2026.02.13",
@@ -78,8 +87,8 @@ const timelineData = [
     mediaLayout: "dual",
     mediaSize: "compact",
     mediaItems: [
-      { src: "/assets/4-1.jpg", alt: "OpenClaw project image 1" },
-      { src: "/assets/4-2.jpg", alt: "OpenClaw project image 2" },
+      { src: asset("4-1.jpg"), alt: "OpenClaw project image 1" },
+      { src: asset("4-2.jpg"), alt: "OpenClaw project image 2" },
     ],
   },
   {
@@ -91,8 +100,8 @@ const timelineData = [
     abilities: ["Workflow", "Orchestration", "Automation"],
     mediaLayout: "dual",
     mediaItems: [
-      { src: "/assets/image2-1.png", alt: "Workflow project image 1" },
-      { src: "/assets/image2-2.png", alt: "Workflow project image 2" },
+      { src: asset("image2-1.png"), alt: "Workflow project image 1" },
+      { src: asset("image2-2.png"), alt: "Workflow project image 2" },
     ],
   },
   {
@@ -105,9 +114,9 @@ const timelineData = [
     projectLink: "https://github.com/yqsevenyeah-coder/sevenyeah_bazi.git",
     mediaLayout: "triple",
     mediaItems: [
-      { src: "/assets/7-1.jpg", alt: "Mystic project image 1" },
-      { src: "/assets/7-2.jpg", alt: "Mystic project image 2" },
-      { src: "/assets/7-3.jpg", alt: "Mystic project image 3" },
+      { src: asset("7-1.jpg"), alt: "Mystic project image 1" },
+      { src: asset("7-2.jpg"), alt: "Mystic project image 2" },
+      { src: asset("7-3.jpg"), alt: "Mystic project image 3" },
     ],
   },
   {
@@ -118,7 +127,7 @@ const timelineData = [
     abilities: ["Agent", "EdTech", "Interaction"],
     projectLink: "https://github.com/yqsevenyeah-coder/PLETutor_agent",
     mediaLayout: "single",
-    mediaSrc: "/assets/3-1.png",
+    mediaSrc: asset("3-1.png"),
   },
   {
     time: "2026.03.28",
@@ -129,7 +138,7 @@ const timelineData = [
     abilities: ["Multimodal", "Product", "Interaction"],
     projectLink: "https://github.com/yqsevenyeah-coder/video_aistu",
     mediaLayout: "single",
-    mediaSrc: "/assets/image1.png",
+    mediaSrc: asset("image1.png"),
   },
 ];
 
@@ -200,7 +209,11 @@ function TimelineCard({ item, index, activeIndex, setActiveIndex, setPreviewImag
               <img src={item.mediaSrc} alt={title} className="timeline-media-single-image" />
             </button>
           ) : item.mediaLayout === "dual" ? (
-            <div className={`timeline-media-dual ${item.mediaSize === "compact" ? "compact" : ""}`}>
+            <div
+              className={`timeline-media-dual ${item.mediaSize ? item.mediaSize : ""} ${
+                item.mediaFit === "contain" ? "contain-fit" : ""
+              }`}
+            >
               {item.mediaItems.map((media, mediaIndex) => (
                 <button
                   key={media.src}
@@ -208,7 +221,13 @@ function TimelineCard({ item, index, activeIndex, setActiveIndex, setPreviewImag
                   className={`timeline-media-dual-card ${mediaIndex === 0 ? "wide" : "tall"}`}
                   onClick={() => setPreviewImage({ kind: "image", src: media.src, alt: media.alt })}
                 >
-                  <img src={media.src} alt={media.alt} className="timeline-media-dual-image" />
+                  <img
+                    src={media.src}
+                    alt={media.alt}
+                    className={`timeline-media-dual-image ${
+                      item.mediaFit === "contain" ? "contain" : ""
+                    }`}
+                  />
                 </button>
               ))}
             </div>
