@@ -1,0 +1,118 @@
+[
+  {
+    "time": "2022.09–2025.06",
+    "year": "2022",
+    "type": "Industry",
+    "title": "【研究生毕业论文】基于大语言模型的语文作文评阅系统",
+    "description": "针对教师评阅效率低、反馈难以有效支持学生修改的问题，设计并开发基于大语言模型的作文评分与反馈系统。从量化和质性2个维度，6个指标构建系统评估指标体系。部分结论：系统得到反馈666条，其中反馈重复率为0.11，评分相关系数0.58， 系统评阅显著促进学生修改和分数提升。",
+    "abilities": ["Evaluation", "EdTech", "Research"],
+    "mediaLayout": "single",
+    "mediaSrc": "8-1.png"
+  },
+  {
+    "time": "2023.06–2023.08",
+    "year": "2023",
+    "type": "Industry",
+    "title": "【好未来】Langchain私域问答机器人",
+    "description": "针对微信客服人工不足、重复咨询多等问题，搭建 LangChain 智能客服系统，实现标准问题自动化应答。参与设计问答库构建、向量化存储、语义匹配、答案返回全流程；整理 200 条 QA 知识库，适配微信场景设计回复策略；搭建客服管理后台，实现高频问题统计、知识库维护、效果监控与问题回流迭代优化。机器人覆盖 70%+ 常见咨询场景，常见问题回答准确率 90% 以上，实现 7×24h 服务，有效释放周末运营人力。",
+    "abilities": ["LLM", "RAG", "System Design"],
+    "mediaLayout": "single",
+    "mediaSrc": "9-1.png"
+  },
+  {
+    "time": "2023.07–2023.08",
+    "year": "2023",
+    "type": "Industry",
+    "title": "【好未来】AI-agent小镇游戏",
+    "description": "在虚拟小镇场景中落地 AI Agent 应用，通过多角色设定与场景化开放式对话，验证 AI Agent 在教育产品中的可行性。主导设计 AI 村民对话功能，完成 12 个角色设定、行为逻辑与记忆机制的Prompt设计；负责小镇世界观、场景及地图设计，并落地可演示 Demo。",
+    "abilities": ["Agent", "Persona", "Memory"],
+    "mediaLayout": "single",
+    "mediaSrc": "5-1.png"
+  },
+  {
+    "time": "2024.04–2024.09",
+    "year": "2024",
+    "type": "Industry",
+    "title": "【网易伏羲】永劫无间手游：AI队友",
+    "description": "针对游戏内 AI 队友指令执行状态不可感知、反馈不一致问题，设计多状态指令回传机制，提升玩家对 AI 行为的理解与交互体验。梳理玩家指令执行全链路，分析 AI 各执行阶段反馈需求；完成进攻、撤退、打药等 11 类指令场景设计，覆盖 4 种回传状态、格式与内容。",
+    "abilities": ["Interaction", "LLM", "Behavior Design"],
+    "projectLink": "https://www.bilibili.com/video/BV13M4m1U7wW/?spm_id_from=333.337.search-card.all.click",
+    "mediaLayout": "single",
+    "mediaSrc": "6-1.png"
+  },
+  {
+    "time": "2025.03–2025.09",
+    "year": "2025",
+    "type": "Industry",
+    "title": "【超星集团】AI音乐分析应用",
+    "description": "参与 AI 音乐分析应用从 0 到 1 落地，负责移动端师生双端核心功能设计、PRD 与测试用例撰写，并协同推进上线。",
+    "abilities": ["Product", "B2B", "Deployment"],
+    "mediaLayout": "single",
+    "mediaSrc": "10-1.png"
+    
+  },
+  {
+    "time": "2026.02.13",
+    "year": "2026",
+    "type": "Personal",
+    "title": "OpenClaw部署与实践",
+    "description": "部署OpenClaw，实现文件整理自动化、定时资讯触达，探索Agent在真实生活场景中的实用价值。",
+    "abilities": ["Agent", "Tooling", "Automation"],
+    "mediaLayout": "dual",
+    "mediaSize": "compact",
+    "mediaItems": [
+      { "src": "4-1.jpg", "alt": "OpenClaw project image 1" },
+      { "src": "4-2.jpg", "alt": "OpenClaw project image 2" }
+    ]
+  },
+  {
+    "time": "2026.02.20",
+    "year": "2026",
+    "type": "Personal",
+    "title": "【SideProject】Coze部署项目级工作流",
+    "description": "获取某公众号最近文章→总结→飞书自动化流程，并结合OpenClaw实现定时触发",
+    "abilities": ["Workflow", "Orchestration", "Automation"],
+    "mediaLayout": "dual",
+    "mediaItems": [
+      { "src": "image2-1.png", "alt": "Workflow project image 1" },
+      { "src": "image2-2.png", "alt": "Workflow project image 2" }
+    ]
+  },
+  {
+    "time": "2026.03.03",
+    "year": "2026",
+    "type": "Personal",
+    "title": "【SideProject】VibeCoding玄学命理网站",
+    "description": "输入生辰进行八字排盘，生成建议并支持咨询",
+    "abilities": ["Prototyping", "Prompt", "Product Thinking"],
+    "projectLink": "https://github.com/yqsevenyeah-coder/sevenyeah_bazi.git",
+    "mediaLayout": "triple",
+    "mediaItems": [
+      { "src": "7-1.jpg", "alt": "Mystic project image 1" },
+      { "src": "7-2.jpg", "alt": "Mystic project image 2" },
+      { "src": "7-3.jpg", "alt": "Mystic project image 3" }
+    ]
+  },
+  {
+    "time": "2026.03.13",
+    "year": "2026",
+    "type": "Personal",
+    "title": "【SideProject】VibeCoding家教Agent",
+    "description": "针对个性化学习需求，搭建初中语文学习辅导Agent系统，设计学生分层、辅导、测试等教学辅导流程",
+    "abilities": ["Agent", "EdTech", "Interaction"],
+    "projectLink": "https://github.com/yqsevenyeah-coder/PLETutor_agent",
+    "mediaLayout": "single",
+    "mediaSrc": "3-1.png"
+  },
+  {
+    "time": "2026.03.28",
+    "year": "2026",
+    "type": "Personal",
+    "title": "【SideProject】VibeCoding视频学习工具",
+    "description": "针对教学视频“快速学习”的需求，实现上传视频→生成逐字稿→生成脑图→时间锚点评论与回看等功能的多模态学习产品",
+    "abilities": ["Multimodal", "Product", "Interaction"],
+    "projectLink": "https://github.com/yqsevenyeah-coder/video_aistu",
+    "mediaLayout": "single",
+    "mediaSrc": "image1.png"
+  }
+]
