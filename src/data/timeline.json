@@ -114,5 +114,19 @@
     "projectLink": "https://github.com/yqsevenyeah-coder/video_aistu",
     "mediaLayout": "single",
     "mediaSrc": "image1.png"
+  },
+  {
+    "time": "2026.04.19",
+    "year": "2026",
+    "type": "Personal",
+    "title": "【SideProject】Codex Knock",
+    "description": "你是否也遇到过在ai coding时不知道codex是否已经完成任务或需要批准的问题？我开发了一个codex线程通知工具，实现了对 ~/.codex/sessions下会话日志事件的持续监听，当codex完成任务或需要批准时，会弹窗告诉我。这样就不用盯着他，可以在他干事儿的时候做其他的事。",
+    "abilities": ["launchd", "MacOS", "local notifications"],
+    "projectLink": "https://github.com/yqsevenyeah-coder/codex-notifier",
+    "mediaLayout": "dual",
+    "mediaItems": [
+      { "src": "11-1.jpg", "alt": "Codex Knock screenshot 1" },
+      { "src": "11-2.jpg", "alt": "Codex Knock screenshot 2" }
+    ]
   }
 ]

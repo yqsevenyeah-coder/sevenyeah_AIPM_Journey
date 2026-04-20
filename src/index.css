@@ -61,7 +61,8 @@ body {
 }
 
 .hero-grid,
-.timeline-section {
+.timeline-section,
+.qa-section {
   position: relative;
   margin: 0 auto;
   width: min(1380px, calc(100% - 48px));
@@ -163,14 +164,16 @@ body {
 
 .timeline-year {
   position: absolute;
-  top: 28px;
+  top: 50%;
   font-size: clamp(3.8rem, 8vw, 5.8rem);
   font-weight: 800;
   line-height: 0.9;
   letter-spacing: -0.08em;
   color: rgba(38, 38, 38, 0.06);
+  white-space: nowrap;
+  pointer-events: none;
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(calc(-50% + 24px));
   transition:
     opacity 450ms ease,
     transform 450ms ease;
@@ -178,20 +181,22 @@ body {
 
 .timeline-year.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(-50%);
 }
 
 .timeline-item.left .timeline-year {
-  right: -6px;
+  left: calc(100% + var(--timeline-axis-gap) + 40px);
+  right: auto;
 }
 
 .timeline-item.right .timeline-year {
-  left: 0;
+  left: auto;
+  right: calc(100% + var(--timeline-axis-gap) + 40px);
 }
 
 .timeline-dot {
   position: absolute;
-  top: 84px;
+  top: 74px;
   width: 14px;
   height: 14px;
   border: 4px solid #fcfbf8;
@@ -441,7 +446,7 @@ body {
 }
 
 .timeline-item.left .timeline-experience {
-  text-align: right;
+  text-align: left;
 }
 
 .timeline-card.revealed {
@@ -560,6 +565,91 @@ body {
   background: rgba(29, 78, 216, 0.1);
   font-size: 0.9rem;
   line-height: 1;
+}
+
+.qa-section {
+  padding: 116px 0 28px;
+}
+
+.qa-section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.qa-section-title {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.8rem, 5vw, 4.15rem);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+  color: #111111;
+}
+
+.qa-section-subtitle {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #57534e;
+}
+
+.qa-dialogue-groups {
+  margin-top: 56px;
+  display: grid;
+  max-width: 980px;
+  margin-inline: auto;
+  gap: 40px;
+}
+
+.qa-dialogue-group {
+  display: grid;
+  gap: 24px;
+}
+
+.qa-message-row {
+  display: flex;
+  padding-inline: clamp(28px, 6vw, 88px);
+}
+
+.qa-message-row.question {
+  justify-content: flex-end;
+}
+
+.qa-message-row.answer {
+  justify-content: flex-start;
+}
+
+.qa-bubble {
+  display: inline-flex;
+  align-items: flex-start;
+  border-radius: 28px;
+  padding: 20px 24px;
+}
+
+.qa-bubble.question {
+  max-width: min(100%, 430px);
+  border: 1px solid rgba(184, 239, 101, 0.75);
+  background: #c3ff00;
+  box-shadow: 0 18px 40px rgba(157, 213, 51, 0.18);
+}
+
+.qa-bubble.answer {
+  max-width: min(100%, 700px);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 20px 48px rgba(45, 35, 20, 0.08);
+}
+
+.qa-message-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.9;
+  letter-spacing: -0.01em;
+  color: #1f2937;
 }
 
 .contact-modal-backdrop {
@@ -746,7 +836,8 @@ body {
 
 @media (max-width: 899px) {
   .hero-grid,
-  .timeline-section {
+  .timeline-section,
+  .qa-section {
     width: min(100%, calc(100% - 8px));
   }
 
@@ -768,8 +859,8 @@ body {
   .timeline-year {
     top: auto;
     bottom: -10px;
-    left: 28px;
-    right: auto;
+    left: auto;
+    right: 20px;
     font-size: clamp(3.4rem, 18vw, 4.8rem);
   }
 
@@ -807,6 +898,23 @@ body {
 
   .timeline-type {
     margin-bottom: 0.1rem;
+  }
+
+  .qa-section {
+    padding: 88px 0 20px;
+  }
+
+  .qa-dialogue-groups {
+    margin-top: 42px;
+    gap: 30px;
+  }
+
+  .qa-bubble.question {
+    max-width: min(100%, 420px);
+  }
+
+  .qa-bubble.answer {
+    max-width: min(100%, 680px);
   }
 }
 
@@ -856,5 +964,43 @@ body {
 
   .timeline-dot {
     left: 5px;
+  }
+
+  .qa-section {
+    padding: 70px 0 12px;
+  }
+
+  .qa-section-title {
+    font-size: clamp(2.35rem, 10vw, 3.1rem);
+  }
+
+  .qa-section-subtitle {
+    font-size: 0.98rem;
+  }
+
+  .qa-dialogue-group {
+    gap: 14px;
+  }
+
+  .qa-message-row {
+    padding-inline: 4px;
+  }
+
+  .qa-bubble {
+    border-radius: 24px;
+    padding: 16px 18px;
+  }
+
+  .qa-bubble.question {
+    max-width: min(100%, 84%);
+  }
+
+  .qa-bubble.answer {
+    max-width: min(100%, 92%);
+  }
+
+  .qa-message-text {
+    font-size: 14px;
+    line-height: 1.8;
   }
 }

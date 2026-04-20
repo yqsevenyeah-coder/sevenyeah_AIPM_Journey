@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import timelineDataRaw from "./data/timeline.json";
+import qaDialoguesRaw from "./data/qa-dialogues.json";
 
 const asset = (path) => `${import.meta.env.BASE_URL}assets/${path}`;
 
@@ -19,6 +20,8 @@ const timelineData = timelineDataRaw.map((item) => ({
     src: asset(media.src),
   })),
 }));
+
+const qaDialogues = qaDialoguesRaw.filter((group) => Array.isArray(group.messages) && group.messages.length > 0);
 
 const timelineEntries = [...timelineData].reverse();
 
@@ -200,6 +203,42 @@ function TimelineCard({ item, index, activeIndex, setActiveIndex, setPreviewImag
   );
 }
 
+function AskSection() {
+  if (qaDialogues.length === 0) return null;
+
+  return (
+    <section className="qa-section" aria-labelledby="ask-section-title">
+      <div className="qa-section-header">
+        <h2 id="ask-section-title" className="qa-section-title">
+          You might want to ask
+        </h2>
+        <p className="qa-section-subtitle">你可能想问</p>
+      </div>
+
+      <div className="qa-dialogue-groups">
+        {qaDialogues.map((group) => (
+          <div key={group.id} className="qa-dialogue-group">
+            {group.messages.map((message, index) => {
+              const isQuestion = message.role === "q";
+
+              return (
+                <div
+                  key={`${group.id}-${message.role}-${index}`}
+                  className={`qa-message-row ${isQuestion ? "question" : "answer"}`}
+                >
+                  <div className={`qa-bubble ${isQuestion ? "question" : "answer"}`}>
+                    <p className="qa-message-text">{message.text}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default function App() {
   const [activeIndex, setActiveIndex] = useState(2);
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -257,11 +296,11 @@ export default function App() {
                 Personal Portfolio
               </p>
               <div className="space-y-2">
-                <h1 className="max-w-4xl text-[58px] font-semibold leading-[0.92] tracking-[-0.06em] text-stone-950 md:text-[72px]">
+                <h1 className="max-w-4xl font-['Inter'] text-[72px] font-extrabold leading-[0.92] tracking-[-0.06em] text-stone-950">
                   Hi, I&apos;m
                 </h1>
-                <h2 className="max-w-4xl text-[58px] font-semibold leading-[0.92] tracking-[-0.06em] text-[#1d4ed8] md:text-[72px]">
-                  sevenyeah.
+                <h2 className="max-w-4xl font-['Inter'] text-[80px] font-extrabold leading-[0.92] tracking-[-0.06em] text-[#1d4ed8]">
+                  SevenYeah.
                 </h2>
               </div>
               <p className="max-w-3xl text-[16px] leading-8 text-stone-600 md:text-[18px]">
@@ -342,6 +381,8 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        <AskSection />
       </div>
 
       {isContactOpen ? (
